@@ -20,4 +20,5 @@ export class AppComponent {
   title = 'table-app';
   constructor() { }
   users: USER[] = usersJson;
+  selectValue:string='';
 }

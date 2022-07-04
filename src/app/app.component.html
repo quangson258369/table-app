@@ -1,5 +1,15 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<select class="form-select" aria-label="Default select example" [(ngModel)]="selectValue">
+    <option value="">Select field to sort</option>
+    <option value="id">Id</option>
+    <option value="firstName">First Name</option>
+    <option value="lastName">Last Name</option>
+    <option value="email">Email</option>
+    <option value="birthday">Birthday</option>
+    <option value="salary">Salary</option>
+  </select>
 <table class="table">
+
     <thead>
         <tr>
             <th scope="col">Id</th>
@@ -13,8 +23,8 @@
         </tr>
     </thead>
     <tbody>
-        <ng-container *ngFor="let user of users">
-            <tr>
+        <ng-container>
+            <tr *ngFor="let user of users |sortBy:selectValue">
                 <td>{{ user.id }}</td>
                 <td>{{ user.firstName }}</td>
                 <td>{{ user.lastName }}</td>
