@@ -1,5 +1,16 @@
 import { Component } from '@angular/core';
+import usersJson from 'users.json';
 
+interface USER {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  gender: string;
+  birthday: string;
+  salary: number;
+  phone: string;
+}
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +18,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'table-app';
+  constructor() { }
+  users: USER[] = usersJson;
 }
