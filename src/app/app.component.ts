@@ -1,24 +1,19 @@
-import { Component } from '@angular/core';
-import usersJson from 'users.json';
+import { Component ,OnInit} from '@angular/core';
+import {DataService} from './data.service';
 
-interface USER {
-  id: number;
-  firstName: string;
-  lastName: string;
-  email: string;
-  gender: string;
-  birthday: string;
-  salary: number;
-  phone: string;
-}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'table-app';
-  constructor() { }
-  users: USER[] = usersJson;
+  constructor(private myService: DataService) { }
+  users;
+  ngOnInit() {
+    this.myService.getData()
+      .subscribe(res => this.users = res);
+  }
   selectValue:string='';
 }

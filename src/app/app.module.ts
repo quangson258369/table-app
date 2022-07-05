@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SortByPipe } from './sort-by.pipe';
-
+import { HttpClientModule } from '@angular/common/http';
+import {DataService} from './data.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -13,9 +14,10 @@ import { SortByPipe } from './sort-by.pipe';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
